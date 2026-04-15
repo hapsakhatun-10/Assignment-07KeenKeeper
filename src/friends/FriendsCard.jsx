@@ -2,12 +2,12 @@ import React from "react";
 
 const FriendsCard = ({ data }) => {
   return (
-    <div className="w-full bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center text-center gap-3">
+    <div className="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center text-center gap-3">
       
       <img
         src={data.picture}
         alt={data.name}
-        className="w-20 h-20 rounded-full object-cover border"
+        className="w-20 h-20 rounded-full  border"
       />
 
       <h2 className="text-lg font-bold text-gray-800">

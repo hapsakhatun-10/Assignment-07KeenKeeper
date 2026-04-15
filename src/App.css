@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+.meduimtext {
+  @apply font-semibold border shadow text-xl;
+}
+
