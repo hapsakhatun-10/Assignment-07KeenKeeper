@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Stats from './pages/Stats.jsx'
 import Timeline from './pages/Timeline.jsx'
+import HomePage from './pages/HomePage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,11 @@ const router = createBrowserRouter([
 
 {
   index: true,
-  element: <h2>homepage</h2>,
-
+  element: <HomePage />,
+ loader: async () => {
+  const res = await fetch("/data.json");
+  return res.json();
+},
 },
 
 {

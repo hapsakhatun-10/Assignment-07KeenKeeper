@@ -9,16 +9,14 @@ export default function Navbar() {
     <div className="w-full bg-gray-100 border-b border-gray-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
 
-        {/* Logo */}
         <div className="flex items-center gap-2">
           <img
             src="/logo.png"
             alt="KeenKeeper Logo"
-            className="h-6 sm:h-7 md:h-8 lg:h-10 w-auto"
+            className="h-4 sm:h-7 md:h-8 lg:h-10 w-auto"
           />
         </div>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-4">
           <MyNavLink to="/">
             <Home size={18} />
