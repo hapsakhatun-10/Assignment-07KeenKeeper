@@ -1,15 +1,17 @@
 import React from 'react'
-import { Outlet } from 'react-router'
-Navber
+import { Outlet } from 'react-router-dom'
 import Footer from '../shared/Footer'
 import Navber from '../shared/Navber'
-export const RouteLayout = () => {
+
+const RouteLayout = () => {
   return (
-  <>
-<Navber/>
-  {/* {daynamic} */}
-  <Outlet />
-<Footer/> 
-</>
+    <>
+      <Navber />
+      {/* dynamic content */}
+      <Outlet />
+      <Footer />
+    </>
   )
 }
+
+export default RouteLayout;
