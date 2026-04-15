@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { toast } from "react-toastify";
+import { TimelineContext } from "../components/TimelineContext";
 
-const Contact = () => {
+const Contact = ({ card }) => {
+  const { addToTimeline } = useContext(TimelineContext);
+
+  const handleVideo = () => {
+
+console.log("CARD:", card);
+console.log("PICTURE:", card?.picture);
+
+
+    toast.success("🎥 Video call started!");
+
+    addToTimeline({
+      user: "You",
+      name: card?.name,
+      picture: card?.picture,
+      type: "Video Call",
+      date: new Date().toLocaleString(),
+    });
+  };
+
   const handleCall = () => {
     toast.success("📞 Audio Call started!");
   };
@@ -10,41 +30,28 @@ const Contact = () => {
     toast.info("💬 Message sent!");
   };
 
-  const handleVideo = () => {
-    toast.success("🎥 Video call started!");
-  };
-
   return (
     <div className="bg-white rounded-3xl p-6 shadow-sm">
       <h3 className="font-semibold text-lg mb-4">Quick Check-In</h3>
 
       <div className="grid grid-cols-3 gap-4">
-        <button
-          onClick={handleCall}
-          className="flex flex-col items-center justify-center py-8 border border-gray-200 rounded-3xl hover:border-gray-300 hover:bg-gray-50 transition"
-        >
+        <button onClick={handleCall}>
           <img src="/call.png" />
-          <p className="font-semibold">Audio</p>
+          <p>Audio</p>
         </button>
 
-        <button
-          onClick={handleMessage}
-          className="flex flex-col items-center justify-center py-8 border border-gray-200 rounded-3xl hover:border-gray-300 hover:bg-gray-50 transition"
-        >
+        <button onClick={handleMessage}>
           <img src="/text.png" />
-          <p className="font-semibold">Message</p>
+          <p>Message</p>
         </button>
 
-        <button
-          onClick={handleVideo}
-          className="flex flex-col items-center justify-center py-8 border border-gray-200 rounded-3xl hover:border-gray-300 hover:bg-gray-50 transition"
-        >
+        <button onClick={handleVideo}>
           <img src="/video.png" />
-          <p className="font-semibold">Video </p>
+          <p>Video</p>
         </button>
       </div>
     </div>
   );
 };
 
-export default Contact;
+export default Contact ;

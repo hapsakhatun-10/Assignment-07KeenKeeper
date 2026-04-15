@@ -97,7 +97,7 @@ const CardDetails = () => {
               </div>
             </div>
 
-            <Contact />
+            <Contact card={card} />
           </div>
         </div>
       </div>

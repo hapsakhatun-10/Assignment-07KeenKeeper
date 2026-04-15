@@ -1,5 +1,41 @@
+import { useContext } from "react";
+import { TimelineContext } from "../components/TimelineContext";
+import { FaVideo, FaPhone, FaComment } from "react-icons/fa";
+
 const Timeline = () => {
-  return <div>Timeline Page</div>;
+  const { timeline } = useContext(TimelineContext);
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Timeline</h1>
+
+      {timeline.length === 0 ? (
+        <p>No activity</p>
+      ) : (
+        timeline.map((item) => (
+          <div
+            key={item.id}
+            className="bg-white p-3 mb-2 rounded shadow flex items-center gap-3"
+          >
+          
+            <div className="text-xl">
+              {item.type === "Video Call" && <FaVideo />}
+              {item.type === "Audio Call" && <FaPhone />}
+              {item.type === "Message" && <FaComment />}
+            </div>
+
+            <div>
+              <h2 className="font-semibold ">
+                {item.type} <span className="font-m text-gray-400"> with {item.name}</span>  
+              </h2>
+
+              <p className="text-sm text-gray-500">{item.date}</p>
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  );
 };
 
 export default Timeline;

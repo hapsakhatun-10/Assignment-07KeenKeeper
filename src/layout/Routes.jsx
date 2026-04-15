@@ -1,10 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import RouteLayout from "../layout/RouteLayout";
-
+import Timeline from "../pages/Timeline";
 import HomePage from "../pages/HomePage";
 import NotFound from "../pages/NotFound";
 import Stats from "../pages/Stats";
-import Timeline from "../pages/Timeline";
 import CardDetails from "../components/CardDetails";
 
 export const router = createBrowserRouter([
@@ -12,7 +11,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: <RouteLayout />,
     errorElement: <NotFound />,
-    hydrateFallbackElement: <h1>Loading App...</h1>, // ✅ ADD THIS
+    hydrateFallbackElement: <h1>Loading App...</h1>, 
     children: [
       {
         index: true,
