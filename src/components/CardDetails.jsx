@@ -1,4 +1,6 @@
 import { useParams, useLoaderData } from "react-router-dom";
+import Button from "../components/Button";
+import Contact from "./Contact";
 
 const CardDetails = () => {
   const { id } = useParams();
@@ -48,19 +50,8 @@ const CardDetails = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="mt-8 space-y-3">
-              <button className="w-full flex items-center justify-center gap-2 py-3 bg-white border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
-                🛎️ Snooze 2 Weeks
-              </button>
 
-              <button className="w-full flex items-center justify-center gap-2 py-3 bg-white border border-gray-200 rounded-2xl hover:bg-gray-50 transition">
-                📁 Archive
-              </button>
-
-              <button className="w-full flex items-center justify-center gap-2 py-3 text-red-600 hover:bg-red-50 rounded-2xl transition">
-                🗑️ Delete
-              </button>
-            </div>
+            <Button />
           </div>
 
           {/* Right Side Content */}
@@ -106,28 +97,7 @@ const CardDetails = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 shadow-sm">
-              <h3 className="font-semibold text-lg mb-4">Quick Check-In</h3>
-
-              <div className="grid grid-cols-3 gap-4">
-                <button className="flex flex-col items-center justify-center py-8 border border-gray-200 rounded-3xl hover:border-gray-300 hover:bg-gray-50 transition">
-                  <span>
-                    <img src="/call.png" />
-                    <p className=" font-semibold">Audio Call</p>
-                  </span>
-                </button>
-
-                <button className="flex flex-col items-center justify-center py-8 border border-gray-200 rounded-3xl hover:border-gray-300 hover:bg-gray-50 transition">
-                  <img src="/text.png" />
-                  <p className=" font-semibold">Message</p>
-                </button>
-
-                <button className="flex flex-col items-center justify-center py-8 border border-gray-200 rounded-3xl hover:border-gray-300 hover:bg-gray-50 transition">
-                  <img src="/video.png" />
-                  <p className=" font-semibold">Video Call</p>
-                </button>
-              </div>
-            </div>
+            <Contact />
           </div>
         </div>
       </div>
