@@ -12,14 +12,16 @@ export const TimelineProvider = ({ children }) => {
   });
 
   const addToTimeline = (item) => {
-    setTimeline((prev) => [
-      {
-        id: Date.now(),
-        ...item,
-      },
-      ...prev,
-    ]);
-  };
+  setTimeline((prev) => [
+    {
+      id: Date.now(),
+      type: item.type,  
+      title: item.title,
+      time: item.time,
+    },
+    ...prev,
+  ]);
+};
 
   const removeFromTimeline = (id) => {
     setTimeline((prev) => prev.filter((item) => item.id !== id));

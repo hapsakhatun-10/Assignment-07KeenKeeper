@@ -6,30 +6,35 @@ const Contact = ({ card }) => {
   const { addToTimeline } = useContext(TimelineContext);
 
   const handleVideo = () => {
-
-console.log("CARD:", card);
-console.log("PICTURE:", card?.picture);
-
-
     toast.success("🎥 Video call started!");
 
     addToTimeline({
-      user: "You",
+      type: "video",
       name: card?.name,
       picture: card?.picture,
-      type: "Video Call",
       date: new Date().toLocaleString(),
     });
   };
 
   const handleCall = () => {
     toast.success("📞 Audio Call started!");
+
+    addToTimeline({
+      type: "call",
+      name: card?.name,
+      date: new Date().toLocaleString(),
+    });
   };
 
   const handleMessage = () => {
     toast.info("💬 Message sent!");
-  };
 
+    addToTimeline({
+      type: "message",
+      name: card?.name,
+      date: new Date().toLocaleString(),
+    });
+  };
   return (
     <div className="bg-white rounded-3xl p-6 shadow-sm">
       <h3 className="font-semibold text-lg mb-4">Quick Check-In</h3>
@@ -54,4 +59,4 @@ console.log("PICTURE:", card?.picture);
   );
 };
 
-export default Contact ;
+export default Contact;

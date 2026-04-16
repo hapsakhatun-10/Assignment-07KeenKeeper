@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
     path: "/",
     element: <RouteLayout />,
     errorElement: <NotFound />,
-    hydrateFallbackElement: <h1>Loading App...</h1>, 
+    hydrateFallbackElement: <h1>Loading App...</h1>,
     children: [
       {
         index: true,
@@ -36,7 +36,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/stats",
-        element: <Stats />,
+        element: (
+          <div className="h-100 min-w-0">
+            <Stats />
+          </div>
+        ),
+        loader: async () => {
+          const res = await fetch("/data.json");
+          return res.json();
+        },
       },
     ],
   },

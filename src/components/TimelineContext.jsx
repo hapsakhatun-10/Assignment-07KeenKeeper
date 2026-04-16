@@ -21,3 +21,4 @@ export const TimelineProvider = ({ children }) => {
     </TimelineContext.Provider>
   );
 };
+// localStorage.clear();
