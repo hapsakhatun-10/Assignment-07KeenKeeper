@@ -7,7 +7,7 @@ const MyNavLink = ({ to, children }) => {
       className={({ isActive }) =>
         `flex items-center gap-2 px-4 py-2 rounded-md transition ${
           isActive
-            ? "bg-green-800 text-white"
+            ? "bg-green-900 text-white"
             : "text-gray-600 hover:text-green-700"
         }`
       }
