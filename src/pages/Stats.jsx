@@ -1,5 +1,13 @@
-import { PieChart, Pie, ResponsiveContainer, Cell, Legend } from "recharts";
+import {
+  PieChart,
+  Pie,
+  ResponsiveContainer,
+  Cell,
+  Legend,
+  Tooltip,
+} from "recharts";
 import { useContext } from "react";
+
 import { TimelineContext } from "../components/TimelineContext";
 import Noactivity from "../components/Noactivity";
 
@@ -25,29 +33,31 @@ const Stats = () => {
   }
 
   return (
-    <div className="w-full mb-8 min-w-0 h-80 sm:h-95 md:h-112 flex items-center justify-center">
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
-          <Pie
-            data={chartData}
-            dataKey="value"
-            nameKey="name"
-            innerRadius={80}
-            outerRadius={130}
-            paddingAngle={4}
-            label
-          >
-            {chartData.map((entry) => (
-              <Cell
-                key={entry.name}
-                fill={COLORS[chartData.indexOf(entry) % COLORS.length]}
-              />
-            ))}
-          </Pie>
+    <div className="mb-4">
+      <h2 className="text-2xl font-bold mb-4">Friendship Analytics</h2>
 
-          <Legend />
-        </PieChart>
-      </ResponsiveContainer>
+      <h3 className="text-lg font-semibold mb-4">By Interaction Type</h3>
+
+<div className="w-full min-w-0 h-72 sm:h-80 md:h-96 flex items-center justify-center">        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie
+              data={chartData}
+              dataKey="value"
+              nameKey="name"
+              innerRadius={80}
+              outerRadius={130}
+              paddingAngle={4}
+            >
+              {chartData.map((entry, index) => (
+                <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+
+            <Tooltip />
+            <Legend />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

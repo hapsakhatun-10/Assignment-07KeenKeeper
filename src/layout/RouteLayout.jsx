@@ -7,16 +7,18 @@ import "react-toastify/dist/ReactToastify.css";
 
 const RouteLayout = () => {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Navber />
 
-      {/* dynamic content */}
-      <Outlet />
+      {/* main content */}
+      <div className="flex-1">
+        <Outlet />
+      </div>
 
       <Footer />
 
       <ToastContainer position="top-right" autoClose={2000} />
-    </>
+    </div>
   );
 };
 

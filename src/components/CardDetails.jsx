@@ -54,7 +54,6 @@ const CardDetails = () => {
             <Button />
           </div>
 
-          {/* Right Side Content */}
           <div className="lg:col-span-2 space-y-6">
             <div className="grid grid-cols-3 gap-4">
               <div className="bg-white rounded-3xl p-6 text-center shadow-sm">

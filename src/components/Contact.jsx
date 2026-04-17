@@ -9,9 +9,10 @@ const Contact = ({ card }) => {
     toast.success("🎥 Video call started!");
 
     addToTimeline({
-      type: "video",
+      user: "You",
       name: card?.name,
       picture: card?.picture,
+      type: "Video Call",
       date: new Date().toLocaleString(),
     });
   };
@@ -40,19 +41,28 @@ const Contact = ({ card }) => {
       <h3 className="font-semibold text-lg mb-4">Quick Check-In</h3>
 
       <div className="grid grid-cols-3 gap-4">
-        <button onClick={handleCall}>
+        <button
+          onClick={handleCall}
+          className="border border-gray-300 rounded-xl p-3 flex flex-col items-center gap-1 hover:bg-gray-50 transition"
+        >
           <img src="/call.png" />
-          <p>Audio</p>
+          <p>Audio Call</p>
         </button>
 
-        <button onClick={handleMessage}>
+        <button
+          onClick={handleMessage}
+          className="border border-gray-300 rounded-xl p-3 flex flex-col items-center gap-1 hover:bg-gray-50 transition"
+        >
           <img src="/text.png" />
           <p>Message</p>
         </button>
 
-        <button onClick={handleVideo}>
+        <button
+          onClick={handleVideo}
+          className="border border-gray-300 rounded-xl p-3 flex flex-col items-center gap-1 hover:bg-gray-50 transition"
+        >
           <img src="/video.png" />
-          <p>Video</p>
+          <p>Video Call</p>
         </button>
       </div>
     </div>
