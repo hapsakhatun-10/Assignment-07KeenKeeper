@@ -2,29 +2,30 @@ import { createContext, useEffect, useState } from "react";
 
 export const TimelineContext = createContext();
 
-
 export const TimelineProvider = ({ children }) => {
-
-
-
   const [timeline, setTimeline] = useState(() => {
     return JSON.parse(localStorage.getItem("timeline")) || [];
   });
 
   const addToTimeline = (item) => {
-  setTimeline((prev) => [
-    {
-      id: Date.now(),
-      type: item.type,  
-      title: item.title,
-      time: item.time,
-    },
-    ...prev,
-  ]);
-};
+    setTimeline((prev) => [
+      {
+        id: Date.now(),
+        ...item,
+      },
+      ...prev,
+    ]);
+  };
 
   const removeFromTimeline = (id) => {
-    setTimeline((prev) => prev.filter((item) => item.id !== id));
+    setTimeline((prev) =>
+      prev.filter((item) => item.id !== id)
+    );
+  };
+
+  const clearTimeline = () => {
+    setTimeline([]);
+    localStorage.removeItem("timeline");
   };
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export const TimelineProvider = ({ children }) => {
         timeline,
         addToTimeline,
         removeFromTimeline,
-        
+        clearTimeline,
       }}
     >
       {children}

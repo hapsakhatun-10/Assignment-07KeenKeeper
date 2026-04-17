@@ -11,14 +11,20 @@ export const TimelineProvider = ({ children }) => {
     setTimeline((prev) => [{ id: Date.now(), ...item }, ...prev]);
   };
 
+  const clearTimeline = () => {
+    setTimeline([]);
+    localStorage.removeItem("timeline");
+  };
+
   useEffect(() => {
     localStorage.setItem("timeline", JSON.stringify(timeline));
   }, [timeline]);
 
   return (
-    <TimelineContext.Provider value={{ timeline, addToTimeline }}>
+    <TimelineContext.Provider
+      value={{ timeline, addToTimeline, clearTimeline }}
+    >
       {children}
     </TimelineContext.Provider>
   );
 };
-// localStorage.clear();

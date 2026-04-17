@@ -2,13 +2,11 @@ import { useContext, useState } from "react";
 import { TimelineContext } from "../components/TimelineContext";
 import { FaVideo, FaPhone, FaComment } from "react-icons/fa";
 import Noactivity from "../components/Noactivity";
-import FilterBtn from "../components/FilterBtn";
 
 const Timeline = () => {
   const [open, setOpen] = useState(false);
-  const { timeline } = useContext(TimelineContext);
+  const { timeline, clearTimeline } = useContext(TimelineContext);
   const [filter, setFilter] = useState("all");
-
   const filteredTimeline =
     filter === "all"
       ? timeline
@@ -21,47 +19,57 @@ const Timeline = () => {
       {/* FILTER BUTTONS */}
 
       {timeline.length > 0 && (
-        <div className="relative mb-4 inline-block">
+        <div className="flex items-center justify-between mb-4">
+          {/* FILTER BUTTON */}
+          <div className="relative inline-block">
+            <button
+              onClick={() => setOpen(!open)}
+              className="px-4 py-2 bg-gray-100 border rounded flex items-center gap-2"
+            >
+              <span>{filter === "all" ? "Filter Timeline" : filter}</span>
+            </button>
+
+            {open && (
+              <div className="absolute mt-2 w-40 bg-white border rounded shadow p-2 flex flex-col gap-1 z-10">
+                <button
+                  onClick={() => {
+                    setFilter("message");
+                    setOpen(false);
+                  }}
+                  className="text-left px-3 py-2 hover:bg-gray-100 rounded"
+                >
+                  Message
+                </button>
+
+                <button
+                  onClick={() => {
+                    setFilter("call");
+                    setOpen(false);
+                  }}
+                  className="text-left px-3 py-2 hover:bg-gray-100 rounded"
+                >
+                  Call
+                </button>
+
+                <button
+                  onClick={() => {
+                    setFilter("video");
+                    setOpen(false);
+                  }}
+                  className="text-left px-3 py-2 hover:bg-gray-100 rounded"
+                >
+                  Video
+                </button>
+              </div>
+            )}
+          </div>
+
           <button
-            onClick={() => setOpen(!open)}
-            className="px-4 py-2 bg-gray-100 border rounded flex items-center gap-2"
+            onClick={clearTimeline}
+            className="px-4 py-2 bg-red-700 text-white rounded border border-red-700 hover:bg-white hover:text-red-600 hover:border-red-500 transition"
           >
-            <span>{filter === "all" ? "Filter Timeline" : filter}</span>
+            Clear Timeline
           </button>
-
-          {open && (
-            <div className="absolute mt-2 w-40 bg-white border rounded shadow p-2 flex flex-col gap-1 z-10">
-              <button
-                onClick={() => {
-                  setFilter("message");
-                  setOpen(false);
-                }}
-                className="text-left px-3 py-2 hover:bg-gray-100 rounded"
-              >
-                Message
-              </button>
-
-              <button
-                onClick={() => {
-                  setFilter("call");
-                  setOpen(false);
-                }}
-                className="text-left px-3 py-2 hover:bg-gray-100 rounded"
-              >
-                Call
-              </button>
-
-              <button
-                onClick={() => {
-                  setFilter("video");
-                  setOpen(false);
-                }}
-                className="text-left px-3 py-2 hover:bg-gray-100 rounded"
-              >
-                Video
-              </button>
-            </div>
-          )}
         </div>
       )}
 

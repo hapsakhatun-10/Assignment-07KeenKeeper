@@ -9,10 +9,8 @@ const Contact = ({ card }) => {
     toast.success("🎥 Video call started!");
 
     addToTimeline({
-      user: "You",
+      type: "video",
       name: card?.name,
-      picture: card?.picture,
-      type: "Video Call",
       date: new Date().toLocaleString(),
     });
   };
