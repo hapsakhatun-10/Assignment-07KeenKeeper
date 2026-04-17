@@ -1,16 +1,47 @@
-# React + Vite
+# KeenKeeper – Friendship Analytics & Interaction Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KeenKeeper is a modern React-based interaction tracking and analytics web application. It helps users record daily interactions (calls, messages, video calls) and visualize activity patterns through an interactive dashboard.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Concept
 
-## React Compiler
+A personal engagement tracker that transforms everyday interactions into meaningful insights using charts and timeline history.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Interaction Tracking System
+Users can log activities in real time such as Audio Calls, Messages, and Video Calls. Each activity is stored with type, user name, and timestamp.
+
+---
+
+### Timeline
+Chronological activity history built using React Context API with persistent storage via localStorage. Supports adding activities and automatic sync updates.
+
+---
+
+### Analytics Dashboard
+Visual breakdown of user activity using Recharts (Pie Chart). Displays interaction distribution (Call vs Message vs Video). Fully responsive and dynamic.
+
+---
+
+### Filtering System
+Timeline can be filtered by All Activities, Messages, Calls, and Videos with instant UI updates without page reload.
+
+---
+
+### User Feedback System
+Integrated React Toastify for real-time notifications including call started, message sent, and video call started.
+
+---
+
+### Responsive UI
+Mobile-first design with adaptive layout for all screen sizes, clean card-based interface, and optimized navigation experience.
+
+---
+
+## Tech Stack
+
+React.js, React Router DOM, Context API, Tailwind CSS, Recharts, React Toastify
